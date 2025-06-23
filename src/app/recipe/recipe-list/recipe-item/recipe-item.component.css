@@ -1,0 +1,19 @@
+.my-recipe-item{
+  display: flex;
+}
+.my-recipe-item:hover{
+  background-color: rgba(118, 130, 197, 0.192);
+  cursor: pointer;
+}
+.my-recipe-item div:first-child{
+  flex: 5;
+}
+.my-recipe-item div:first-child p{
+  margin: 0;
+}
+.my-recipe-item div:last-child{
+  flex: 1;
+}
+.my-recipe-item div:last-child img{
+  width: 100%;
+}

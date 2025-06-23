@@ -1,0 +1,52 @@
+<!-- <p>Shopping Form</p> -->
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-row align-items-center">
+    <div class="col-sm-3 my-1">
+      <div class="form-group">
+        <label for="ingredName">Ingredient Name</label>
+        <input type="text" class="form-control" id="ingredName" ngModel name="iName" required #shopFn="ngModel">
+        <span class="text-danger" *ngIf="!shopFn.valid && shopFn.touched">Name is required</span>
+      </div>
+    </div>
+    <div class="col-sm-3 my-1">
+      <div class="form-group">
+        <label for="ingredBrand">Ingredient Brand</label>
+        <input type="text" class="form-control" id="ingredBrand" ngModel name="iBrand" required>
+        <span class="text-danger" *ngIf="!myForm.controls['iBrand']?.valid && myForm.controls['iBrand']?.touched">
+          Brand is required.
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-3 my-1">
+      <div class="form-group">
+        <label for="ingredQty">Ingredient Quantity</label>
+        <input type="text" class="form-control" id="ingredQty" ngModel name="iQty" required>
+        <span class="text-danger" *ngIf="!myForm.controls['iQty']?.valid && myForm.controls['iQty']?.touched">
+          Quantity is required.
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-3 my-1">
+      <div class="form-group">
+        <label for="ingredPrice">Ingredient Price</label>
+        <input type="text" class="form-control" id="ingredPrice" ngModel name="iPrice" required>
+        <span class="text-danger" *ngIf="!myForm.controls['iPrice']?.valid && myForm.controls['iPrice']?.touched">
+          Price is required.
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-3 my-1">
+      <div class="form-group">
+        <label for="ingredImg">Ingredient Image Path</label>
+        <input type="text" class="form-control" id="ingredImg" ngModel name="iImg" required>
+        <span class="text-danger" *ngIf="!myForm.controls['iImg']?.valid && myForm.controls['iImg']?.touched">
+          Image is required.
+        </span>
+      </div>
+    </div>
+    <div class="col-auto my-1">
+      <!-- <button type="reset" class="btn btn-primary" (click)="createIngredient()">Submit</button> -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>

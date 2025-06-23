@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pro_1';
+  // selectedPage : any = 'recipe';
+
+  // listenFromChildHeader(eveData : any){
+  //   //console.log('listenFromChildHeader trigger', eveData);
+  //   this.selectedPage = eveData;
+  // }
 }

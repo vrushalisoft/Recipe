@@ -1,0 +1,32 @@
+<!-- <p>recipe-form works!</p> -->
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="recipeName">Recipe Name</label>
+    <input type="text" id="recipeName" class="form-control" formControlName="rName">
+    <span class="text-danger" *ngIf="!recipeForm.get('rName').valid && recipeForm.get('rName').touched">*Recipe name is required</span>
+  </div>
+  <div class="form-group">
+    <label for="imgPath"></label>Recipe Image Path
+    <input type="text" id="imgPath" class="form-control" formControlName="rImgPath">
+    <span class="text-danger" *ngIf="!recipeForm.get('rImgPath').valid && recipeForm.get('rImgPath').touched">*Image path is required</span>
+  </div>
+  <div class="form-group">
+    <label for="preparationTime">Recipe Preparation Time</label>
+    <input type="text" id="preparationTime" class="form-control" formControlName="rPrep">
+    <span class="text-danger" *ngIf="!recipeForm.get('rPrep').valid && recipeForm.get('rPrep').touched">*Preparation time is required</span>
+  </div>
+  <div class="form-group">
+    <label for="recipeDesc">Recipe Description</label>
+    <textarea type="text" id="recipeDesc" class="form-control" formControlName="rDesc"></textarea>
+    <span class="text-danger" *ngIf="!recipeForm.get('rDesc').valid && recipeForm.get('rDesc').touched">
+      <ng-container *ngIf="recipeForm.get('rDesc')?.errors?.['required']">
+        Description is required
+      </ng-container>
+      <ng-container *ngIf="recipeForm.get('rDesc')?.errors?.['minlength']">
+        Description length should be 20
+        <span>Please add {{recipeForm.get('rDesc')?.errors?.['minlength']?.requiredLength - recipeForm.get('rDesc')?.errors?.['minlength']?.actualLength}} more characters</span>
+      </ng-container>
+    </span>
+  </div>
+  <button type="submit" class="btn btn-success btn-block btn-sm">{{isNewRecipe ? 'Create Recipe' : 'Update Recipe'}}</button>
+</form>

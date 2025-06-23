@@ -1,0 +1,10 @@
+<!-- <p>Recipe List</p> -->
+<button class="btn btn-primary btn-block btn-sm text-center" routerLink="new-recipe">Add New Recipe</button>
+<div class="list-group" *ngIf="recipeList.length; else noRecipe">
+  <!-- <app-recipe-item *ngFor = "let recipe of recipeList" [item]="recipe"
+  (tellToParentList)="listenFromChild(recipe)"></app-recipe-item> -->
+  <app-recipe-item *ngFor = "let recipe of recipeList; let i = index" [item]="recipe" [recIndex]="i"></app-recipe-item>
+</div>
+<ng-template #noRecipe>
+  <h2> There ara no recipes available at this movement</h2>
+</ng-template>
